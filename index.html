@@ -184,46 +184,6 @@
         margin-bottom: 65px;
       }
 
-      /* ================= FLOATING GRADIENT LIGHT ================= */
-      /* .hero-light {
-        position: absolute;
-        top: -20%;
-        left: -20%;
-        width: 140%;
-        height: 140%;
-        background:
-          radial-gradient(
-            circle at 30% 30%,
-            rgba(56, 189, 248, 0.25),
-            transparent 60%
-          ),
-          radial-gradient(
-            circle at 70% 70%,
-            rgba(99, 102, 241, 0.25),
-            transparent 60%
-          );
-        animation: floatLight 12s ease-in-out infinite alternate;
-        z-index: 0;
-        pointer-events: none;
-      }
-
-      .hero > *:not(.hero-light) {
-        position: relative;
-        z-index: 2;
-      }
-
-      @keyframes floatLight {
-        0% {
-          transform: translate(0px, 0px) scale(1);
-        }
-        50% {
-          transform: translate(40px, -30px) scale(1.05);
-        }
-        100% {
-          transform: translate(-30px, 40px) scale(1.08);
-        }
-      } */
-
       /* ================= BUTTON ================= */
       .btn {
         padding: 18px 32px;
@@ -1421,10 +1381,10 @@
 
       const hero = document.querySelector('.hero');
 
-      // window.addEventListener('scroll', () => {
-      //   const scrollY = window.scrollY;
-      //   hero.style.backgroundPositionY = scrollY * 0.4 + 'px';
-      // });
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        hero.style.backgroundPositionY = scrollY * 0.4 + 'px';
+      });
 
       /* Burger toggle */
       toggle.addEventListener('click', () => {
