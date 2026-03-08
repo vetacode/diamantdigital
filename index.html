@@ -718,7 +718,7 @@
 
       @media (prefers-reduced-motion: reduce) {
         html {
-          scroll-behavior: auto;
+          scroll-behavior: smooth;
         }
 
         .reveal,
@@ -743,10 +743,10 @@
       /* ================= FLOATING WHATSAPP ================= */
       .floating-wa {
         position: fixed;
-        right: 20px;
-        bottom: 20px;
-        width: 58px;
-        height: 58px;
+        right: 40px;
+        bottom: 40px;
+        width: 68px;
+        height: 68px;
         border-radius: 50%;
         background: linear-gradient(135deg, #22c55e, #16a34a);
         color: #fff;
@@ -754,7 +754,7 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        font-size: 30px;
+        font-size: 48px;
         z-index: 998;
         box-shadow: 0 8px 24px rgba(22, 163, 74, 0.45);
       }
@@ -777,6 +777,8 @@
 
       .floating-wa:hover {
         transform: translateY(-2px);
+        scale: 1.2;
+        transition: ease-in-out 0.3s;
       }
 
       @keyframes waBeam {
@@ -792,11 +794,11 @@
 
       @media (max-width: 920px) {
         .floating-wa {
-          right: 14px;
-          bottom: 14px;
+          right: 24px;
+          bottom: 24px;
           width: 54px;
           height: 54px;
-          font-size: 28px;
+          font-size: 38px;
         }
       }
 
