@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diamant Digital | Jasa Pembuatan Website Profesional</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
@@ -28,6 +30,7 @@
         background: #0f172a;
         color: #fff;
         overflow-x: hidden;
+        line-height: 1.6;
       }
       section {
         scroll-margin-top: 20px;
@@ -44,7 +47,8 @@
         justify-content: space-between;
         align-items: center;
         background: rgba(15, 23, 42, 0.85);
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         z-index: 999;
         transition: 0.4s;
       }
@@ -60,7 +64,7 @@
       }
 
       .navbar a:hover {
-        scale: 1.1;
+        transform: translateY(-1px);
         transition: all 0.3s;
       }
 
@@ -163,10 +167,10 @@
         overflow: hidden;
         background:
           linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.95)),
-          url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop');
+          url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=72&w=1600&auto=format&fit=crop');
         background-size: cover;
         background-position: center;
-        background-attachment: fixed; /* fallback */
+        background-attachment: scroll;
       }
 
       .hero h1 {
@@ -285,15 +289,15 @@
 
       .highlight {
         border: 1px solid #38bdf8;
-        animation: neonPulse 2s infinite alternate;
+        animation: neonPulse 2.8s ease-in-out 3;
       }
 
       @keyframes neonPulse {
         from {
-          box-shadow: 0 0 10px #38bdf8;
+          box-shadow: 0 0 8px rgba(56, 189, 248, 0.55);
         }
         to {
-          box-shadow: 0 0 40px #6366f1;
+          box-shadow: 0 0 24px rgba(99, 102, 241, 0.45);
         }
       }
 
@@ -372,77 +376,85 @@
       }
 
       .faq-item {
-        background: #1e293b;
-        border-radius: 16px;
-        margin-bottom: 20px;
+        background: #1a2333;
+        border-radius: 14px;
+        margin-bottom: 14px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: 0.4s ease;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        transition:
+          border-color 0.25s ease,
+          background-color 0.25s ease,
+          transform 0.25s ease;
       }
 
       .faq-item:hover {
-        box-shadow:
-          0 0 20px rgba(56, 189, 248, 0.5),
-          0 0 40px rgba(99, 102, 241, 0.4);
+        transform: translateY(-2px);
+        border-color: rgba(56, 189, 248, 0.45);
       }
 
       /* ================= QUESTION ================= */
 
       .faq-question {
-        padding: 22px 28px;
+        padding: 20px 24px;
         cursor: pointer;
         font-weight: 600;
         font-size: 16px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* color: #38bdf8; */
-        text-shadow: 0 0 10px #38bdf8;
-        transition: 0.3s ease;
+        color: #e2e8f0;
+        transition: color 0.25s ease;
       }
 
       .faq-question:hover {
-        text-shadow:
-          0 0 15px #38bdf8,
-          0 0 25px #6366f1;
+        color: #7dd3fc;
       }
 
       .faq-question i {
-        transition: 0.4s ease;
+        color: #93c5fd;
+        transition:
+          transform 0.25s ease,
+          color 0.25s ease;
       }
 
       /* ================= ANSWER ================= */
 
       .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        padding: 0 28px;
+        display: none;
+        padding: 0 24px 18px;
         font-size: 14px;
-        opacity: 0.85;
+        color: #cbd5e1;
+        opacity: 1;
         line-height: 1.6;
-        transition:
-          max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-          padding 0.4s ease,
-          opacity 0.4s ease;
       }
 
       .faq-item.active {
-        box-shadow:
-          0 0 25px rgba(56, 189, 248, 0.7),
-          0 0 60px rgba(99, 102, 241, 0.6);
-        border: 1px solid #38bdf8;
+        border-color: rgba(56, 189, 248, 0.7);
+        background: #162235;
       }
 
       .faq-item.active .faq-answer {
-        max-height: 300px;
-        padding: 0 28px 25px 28px;
-        opacity: 1;
+        display: block;
       }
 
       .faq-item.active .faq-question i {
         transform: rotate(180deg);
-        color: #6366f1;
-        text-shadow: 0 0 15px #6366f1;
+        color: #38bdf8;
+      }
+
+      @media (hover: none) {
+        .faq-item:hover {
+          transform: none;
+          border-color: rgba(148, 163, 184, 0.2);
+        }
+      }
+
+      @media (max-width: 920px) {
+        .faq-item,
+        .faq-question i,
+        .faq-answer {
+          transition: none;
+        }
       }
 
       /* ================= KONSULTASI GRATIS ================= */
@@ -684,13 +696,17 @@
       .reveal-left {
         opacity: 0;
         transform: translateX(-60px);
-        transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       .reveal-right {
         opacity: 0;
         transform: translateX(60px);
-        transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       .reveal-left.active,
@@ -704,7 +720,9 @@
       .reveal-scale {
         opacity: 0;
         transform: scale(0.95);
-        transition: all 0.8s ease;
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
       }
 
       .reveal-scale.active {
@@ -728,6 +746,25 @@
       }
       .delay-5 {
         transition-delay: 0.5s;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal,
+        .reveal-left,
+        .reveal-right,
+        .reveal-scale {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+
+        .highlight {
+          animation: none;
+        }
       }
 
       /* ================= UPGRADE SECTION ================= */
@@ -1050,7 +1087,7 @@
       <h2 class="section-title">FAQ (Pertanyaan yang Sering Diajukan)</h2>
 
       <div class="faq-container">
-        <div class="faq-item reveal">
+        <div class="faq-item">
           <div class="faq-question">
             Berapa lama proses pembuatan website?
             <i class="fas fa-chevron-down"></i>
@@ -1328,7 +1365,7 @@
     </section>
 
     <!-- ================= KONSULTASI GRATIS ================= -->
-    <section class="free-consult" id="konsultasi reveal">
+    <section class="free-consult reveal" id="konsultasi">
       <h2>Konsultasi Gratis</h2>
       <p>
         Mau buat website profesional dengan biaya terjangkau? Silakan hubungi
@@ -1347,111 +1384,147 @@
 
     <script>
       const navbar = document.getElementById('navbar');
-      const links = document.querySelectorAll('.nav-links a');
+      const links = Array.from(document.querySelectorAll('.nav-links a'));
       const toggle = document.getElementById('menu-toggle');
       const navLinks = document.getElementById('nav-links');
-      const toggleIcon = toggle.querySelector('i');
+      const toggleIcon = toggle ? toggle.querySelector('i') : null;
+      const sections = Array.from(document.querySelectorAll('section[id]'));
+      const navLinkById = new Map();
 
-      /* Sticky + active link */
-      window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-
-        const scrollPos = window.scrollY + 150;
-
-        document.querySelectorAll('section').forEach((section) => {
-          const top = section.offsetTop;
-          const bottom = top + section.offsetHeight;
-          const id = section.getAttribute('id');
-
-          if (scrollPos >= top && scrollPos < bottom) {
-            links.forEach((link) => link.classList.remove('active'));
-
-            const activeLink = document.querySelector(
-              `.nav-links a[href="#${id}"]`,
-            );
-
-            if (activeLink) {
-              activeLink.classList.add('active');
-            }
-          }
-        });
-      });
-
-      /* ================= HERO PARALLAX ================= */
-
-      const hero = document.querySelector('.hero');
-
-      window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        hero.style.backgroundPositionY = scrollY * 0.4 + 'px';
-      });
-
-      /* Burger toggle */
-      toggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-
-        if (navLinks.classList.contains('active')) {
-          toggleIcon.classList.remove('fa-bars');
-          toggleIcon.classList.add('fa-times');
-        } else {
-          toggleIcon.classList.remove('fa-times');
-          toggleIcon.classList.add('fa-bars');
+      links.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          navLinkById.set(href.slice(1), link);
         }
       });
 
-      /* Auto close after click */
-      links.forEach((link) => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          toggleIcon.classList.remove('fa-times');
-          toggleIcon.classList.add('fa-bars');
+      /* Sticky + active link (throttled for smoother scrolling) */
+      const updateOnScroll = () => {
+        if (navbar) {
+          navbar.classList.toggle('scrolled', window.scrollY > 50);
+        }
+
+        const scrollPos = window.scrollY + 150;
+        let activeSectionId = '';
+
+        sections.forEach((section) => {
+          const top = section.offsetTop;
+          const bottom = top + section.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom) {
+            activeSectionId = section.id;
+          }
         });
-      });
 
-      //ACCORDION
-      const faqItems = document.querySelectorAll('.faq-item');
+        links.forEach((link) => link.classList.remove('active'));
+        const activeLink = navLinkById.get(activeSectionId);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      };
 
-      faqItems.forEach((item) => {
-        item.querySelector('.faq-question').addEventListener('click', () => {
-          // Tutup semua kecuali yang diklik
-          faqItems.forEach((el) => {
-            if (el !== item) {
-              el.classList.remove('active');
-            }
+      let ticking = false;
+      window.addEventListener(
+        'scroll',
+        () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              updateOnScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        },
+        { passive: true },
+      );
+      updateOnScroll();
+
+      /* Burger toggle */
+      if (toggle && navLinks && toggleIcon) {
+        toggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+
+          if (navLinks.classList.contains('active')) {
+            toggleIcon.classList.remove('fa-bars');
+            toggleIcon.classList.add('fa-times');
+          } else {
+            toggleIcon.classList.remove('fa-times');
+            toggleIcon.classList.add('fa-bars');
+          }
+        });
+
+        /* Auto close after click */
+        links.forEach((link) => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            toggleIcon.classList.remove('fa-times');
+            toggleIcon.classList.add('fa-bars');
           });
-
-          // Toggle item yang diklik
-          item.classList.toggle('active');
         });
-      });
+      }
 
-      /* ================= SCROLL REVEAL ENGINE ================= */
+      /* FAQ accordion (event delegation, lighter listeners) */
+      const faqContainer = document.querySelector('.faq-container');
+      if (faqContainer) {
+        let activeFaqItem = null;
 
+        faqContainer.addEventListener('click', (event) => {
+          const question = event.target.closest('.faq-question');
+          if (!question) {
+            return;
+          }
+
+          const currentItem = question.closest('.faq-item');
+          if (!currentItem) {
+            return;
+          }
+
+          const isSameItem = activeFaqItem === currentItem;
+
+          if (activeFaqItem && !isSameItem) {
+            activeFaqItem.classList.remove('active');
+          }
+
+          if (isSameItem) {
+            currentItem.classList.remove('active');
+            activeFaqItem = null;
+            return;
+          }
+
+          currentItem.classList.add('active');
+          activeFaqItem = currentItem;
+        });
+      }
+
+      /* Scroll reveal engine */
       const reveals = document.querySelectorAll(
         '.reveal, .reveal-left, .reveal-right, .reveal-scale',
       );
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-            }
-          });
-        },
-        {
-          threshold: 0.15,
-        },
-      );
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+        );
 
-      reveals.forEach((el) => {
-        observer.observe(el);
-      });
+        reveals.forEach((el) => observer.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add('active'));
+      }
 
-      /* ================= LIMIT PRICING LIST ================= */
-
+      /* Limit pricing list */
       document.querySelectorAll('.pricing-card').forEach((card) => {
         const list = card.querySelector('ul');
+        if (!list) {
+          return;
+        }
+
         const items = list.querySelectorAll('li');
 
         if (items.length > 8) {
@@ -1467,12 +1540,9 @@
 
           toggleBtn.addEventListener('click', () => {
             list.classList.toggle('expanded');
-
-            if (list.classList.contains('expanded')) {
-              toggleBtn.textContent = '<< Show less';
-            } else {
-              toggleBtn.textContent = 'Show more >>';
-            }
+            toggleBtn.textContent = list.classList.contains('expanded')
+              ? '<< Show less'
+              : 'Show more >>';
           });
 
           list.after(toggleBtn);
