@@ -1512,14 +1512,6 @@
       );
       updateOnScroll();
 
-      window.addEventListener('load', updateHeroParallax);
-
-      window.addEventListener('resize', updateHeroParallax);
-
-      if (typeof reducedMotionMedia.addEventListener === 'function') {
-        reducedMotionMedia.addEventListener('change', updateHeroParallax);
-      }
-
       /* Burger toggle */
       if (toggle && navLinks && toggleIcon) {
         toggle.addEventListener('click', () => {
