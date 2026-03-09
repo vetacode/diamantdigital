@@ -1509,6 +1509,11 @@
         }
       });
 
+      //   window.addEventListener('scroll', () => {
+      //   const scrollY = window.scrollY;
+      //   hero.style.backgroundPositionY = scrollY * 0.4 + 'px';
+      // });
+
       /* Sticky + active link (throttled for smoother scrolling) */
       const updateOnScroll = () => {
         if (navbar) {
@@ -1534,9 +1539,7 @@
       };
 
       const updateHeroParallax = () => {
-        if (!hero) {
-          return;
-        }
+        if (!hero) return;
 
         if (reducedMotionMedia.matches || window.innerWidth <= 920) {
           hero.style.setProperty('--hero-parallax', '0px');
@@ -1544,13 +1547,10 @@
           return;
         }
 
-        const heroRect = hero.getBoundingClientRect();
-        const visibleScroll = Math.max(
-          0,
-          Math.min(-heroRect.top, heroRect.height),
-        );
-        const imageShift = Math.min(visibleScroll * 0.22, 120);
-        const lightShift = Math.min(visibleScroll * 0.34, 170);
+        const scroll = window.scrollY;
+
+        const imageShift = Math.min(scroll * 0.25, 120);
+        const lightShift = Math.min(scroll * 0.35, 170);
 
         hero.style.setProperty('--hero-parallax', `${imageShift}px`);
         hero.style.setProperty('--hero-light-parallax', `${lightShift}px`);
